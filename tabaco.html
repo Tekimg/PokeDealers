@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Tabacos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+
+<!-- navbar -->
+<header>
+    <a href="" class="logo">La Casa del Tabaco</a>
+    <ul>
+        <li><a href="main_Home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tabaco.html" class="active">Tobacco</a></li>
+        <li><a href="accesorios.html">Accesories</a></li>
+        <li><a href="giftshop.html">Login</a></li>
+        <li><a href="contacto.html">Contact Info</a></li>
+    </ul>
+</header>
+
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <section class="contenedor">
+        <!--contenedor elementos-->
+        <div class="contenedor-items">
+            <div class="item">
+                <span class="titulo-item">Vainilla-Caramelo</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/vainilla_caramelo.jpeg" alt="" class="img-item">
+                <span class="precio-item">$5.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item2">
+                <span class="titulo-item">Chocolate</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/chocolate.png" alt="" class="img-item">
+                <span class="precio-item">$6.000</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Menta</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/menta.png" alt="" class="img-item">
+                <span class="precio-item">$4.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item2">
+                <span class="titulo-item">Caramelo</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/caramelo.png" alt="" class="img-item">
+                <span class="precio-item">$5.000</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Cherry</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/cherry.png" alt="" class="img-item">
+                <span class="precio-item">$3.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item2">
+                <span class="titulo-item">Uva</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/uva.png" alt="" class="img-item">
+                <span class="precio-item">$3.000</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Mango</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/mango.png" alt="" class="img-item">
+                <span class="precio-item">$6.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item2">
+                <span class="titulo-item">Canela</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/canela.png" alt="" class="img-item">
+                <span class="precio-item">$2.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Vainilla</span>
+                <div class="separador"></div>
+                <br>
+                <img src="img/vainilla.png" alt="" class="img-item">
+                <span class="precio-item">$2.500</span>
+                <button class="boton-item">Agregar al Carrito</button>
+                <div class="decoracion"></div>
+            </div>
+        </div>
+        <!--carrito de compras-->
+        <div class="carrito">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+
+            <div class="carrito-items">
+                
+                <!--
+
+                <div class="carrito-item">
+                    <img src="img/vainilla_caramelo.jpeg" alt="" width="80px">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Box???</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-mins restar-cantidad"></i>
+                            <input type="text" value="2" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$15.000</span>
+                    </div>
+                    <span class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </div>
+
+                <div class="carrito-item">
+                    <img src="img/vainilla_caramelo.jpeg" alt="" width="80px">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Box2???</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-mins restar-cantidad"></i>
+                            <input type="text" value="2" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$30.000</span>
+                    </div>
+                    <span class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </div>
+
+                -->
+            </div>
+
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">
+                        $0.000
+                    </span>
+                </div>
+                <button class="btn-pagar">Pagar<i class="fa-solid fa-bag-shopping"></i></button>
+                <br>
+                <div class="decoracion"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- boton volver al principio(top) de la pagina -->
+    <img src="img/Tabaqueria.png" class="lighter" onclick="toTop()">
+    
+</body>
+
+<!-- footer -->
+<footer>
+    <div class="footerContainer">
+        <div class="icons">
+            <a href="#" class="fa-brands fa-facebook"></a>
+            <a href="#" class="fa-brands fa-instagram"></a>
+            <a href="#" class="fa-brands fa-twitter"></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="main_Home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="tabaco.html">Tobacco</a></li>
+                <li><a href="accesorios.html">Accesories</a></li>
+                <li><a href="giftshop.html">Login</a></li>
+                <li><a href="contacto.html">Contact Info</a></li>
+            </ul>
+
+            <div class="footerBottom">
+                <p>Copyright &copy; 2024 Diseñado por <span class="designer">Erices y Sotelo</span></p>
+            </div>
+
+        </div>
+
+
+    </div>
+</footer>
+
+
+
+</html>
