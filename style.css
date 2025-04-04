@@ -1,3 +1,15 @@
+.titucaru {
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    font-style: normal;
+    font-size: x-large;
+}
+
+
+
 body
 {
     background-color: #000;
@@ -210,7 +222,7 @@ footer
   }
 
 /* encendedor que te sigue y te devuelve al inicio de la pag */
-.lighter
+.Goldbat
 {
     position: fixed;
     bottom: 1px;
