@@ -256,8 +256,8 @@ footer
 .contenedor .contenedor-items .item
 {
     /*aqui van colores*/
-    color: rgb(73, 53, 33);
-    background-color: rgba(255, 165, 0, 0.7);
+    color: rgb(233, 135, 43);
+    background-color: rgba(204, 0, 0, 0.7);
     max-width: 200px;
     margin: auto;
     border: 1px solid #666;
@@ -295,18 +295,19 @@ footer
     display: block;
     margin: 10px auto;
     border: none;
-    background: black;
-    color: #fff;
+    background: rgb(255, 148, 148);
+    color: #000000;
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 
 .contenedor .contenedor-items .item2
 {
-    color: rgb(255, 165, 0);
-    background-color: rgba(73, 53, 33, 0.9);
+    color: rgb(0, 140, 255);
+    background-color: rgba(4, 27, 102, 0.9);
     max-width: 200px;
     margin: auto;
     border: 1px solid #666;
@@ -344,11 +345,13 @@ footer
     display: block;
     margin: 10px auto;
     border: none;
-    background: black;
-    color: #fff;
+    background: rgb(187, 233, 255);
+    color: #000000;
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+
 } 
 
 /*fin item*/
