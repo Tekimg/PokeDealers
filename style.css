@@ -1,3 +1,50 @@
+.navbar-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el hover */
+}
+
+.navbar-btn:hover {
+    background-color: #ffa500; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}
+
+.navbar-btn:active {
+    background-color: #ffa350; /* Color más oscuro al hacer clic */
+}
+
+.ubicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta el alto si lo necesitas */
+}
+
+.h2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffa500; /* Color de fondo, por ejemplo un azul */
+    color: white; /* Color del texto */
+    font-size: 18px;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos de transición */
+  }
+  
+.h2:hover {
+    background-color: #ffa500; /* Cambia el fondo cuando se pasa el mouse sobre el h2 */
+    transform: scale(1.05); /* Agranda ligeramente el texto */
+}
+
+.img-item {
+    height: 200px; 
+    object-fit: cover; /* PARA MANTENER LA RELACION DE ASPECTO DE LAS IMAGENES (RECORTARLAS)*/
+}
+
 .titucaru {
     color: white;
     margin-top: 30px;
@@ -73,7 +120,7 @@ header ul li a
     position: relative;
     margin: 0 15px;
     text-decoration: none;
-    color: #ffa500;
+    color: #09ff00;
     letter-spacing: 2px;
     font-weight: 500px;
     transition: 0.6s;
