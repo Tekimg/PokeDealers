@@ -1,3 +1,8 @@
+.btn.btn-primary {
+    align-self: center;
+    font-weight: bolder;
+}
+
 .box {
     font-display: flex;
     text-align: center;
@@ -32,9 +37,7 @@
     list-style: none;
 }
 
-.btn.btn-primary {
-    align-self: baseline;
-}
+
 
 .class2 {
     display: flex;

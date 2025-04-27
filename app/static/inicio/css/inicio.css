@@ -1,134 +1,119 @@
-@media( max-width: 767px){
-
-
-  .boton{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  .btn {
-      padding: 50px 100px;
-      background-color: darkorange;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 100%;
-      
-    }
-    
-  .btn:hover {
-    background-color: rgb(252, 88, 48);
-  }
-
-
-
-
-}
-
-
-@media( max-width: 768px) and (max-width: 990px){
-    .boton{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  .btn {
-      padding: 50px 100px;
-      background-color: darkorange;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 200%;
-      
-    }
-    
-  .btn:hover {
-    background-color: rgb(252, 88, 48);
-  }
-
-
-
-}
-
-
-@media( max-width: 991px){
-      .boton{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .btn {
-        padding: 50px 100px;
-        background-color: darkorange;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 200%;
-        
-      }
-      
-    .btn:hover {
-      background-color: rgb(252, 88, 48);
-    }
-
-
-    
-
-}
-
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   margin-bottom: 60px;
 }
 
-.boton{
+.boton {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .btn {
   padding: 50px 100px;
-  background-color: darkorange;
+  background-color: rgb(255, 0, 0) !important;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 200%;
-  
+
 }
 
 .btn:hover {
-background-color: rgb(252, 88, 48);
+  background-color: rgb(241, 35, 35) !important;
 }
 
 
-.boton{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.btn {
-  padding: 50px 100px;
-  background-color: darkorange;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 200%;
-  
+
+@media(max-width: 767px) {
+
+
+  .boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn {
+    padding: 50px 100px;
+    background-color: rgb(255, 0, 0) !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 100%;
+
+  }
+
+  .btn:hover {
+    background-color: rgb(241, 35, 35) !important;
+  }
+
+
+
+
 }
 
-.btn:hover {
-background-color: rgb(252, 88, 48);
+
+@media(max-width: 768px) and (max-width: 990px) {
+  .boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn {
+    padding: 50px 100px;
+    background-color: rgb(255, 0, 0) !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 200%;
+
+  }
+
+  .btn:hover {
+    background-color: rgb(241, 35, 35) !important;
+  }
+
+
+
 }
+
+
+@media(max-width: 991px) {
+  .boton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn {
+    padding: 50px 100px;
+    background-color: rgb(255, 0, 0) !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 200%;
+
+  }
+
+  .btn:hover {
+    background-color: rgb(241, 35, 35) !important;
+  }
+
+
+
+
+} 

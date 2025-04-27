@@ -24,9 +24,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark">
             <a class="navbar-brand" href="{% url 'home'%}">
-                <img class="logo" src='{% static 'inicio/img-carro/logo-empresa.png' %}' alt="Logo">
+                <img class="logo" src='{% static 'inicio/img/MasterBall.png' %}' alt="Logo">
             </a>
-            <a class="navbar-brand" href="{% url 'home'%}">Rinconcito Animal</a>
+            <a class="navbar-brand" href="{% url 'home'%}">PokeDealers</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,13 +34,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'alimentos'%}">Alimentos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'alimentos'%}">Singles<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'accesorios' %}">Accesorios <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'accesorios' %}">Accesorios<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'farmacia' %}">Farmacia <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'farmacia' %}">Productos Sellados<span class="sr-only">(current)</span></a>
                     </li>
                     {%if request.user.is_authenticated%}
                         {% if request.user.is_staff %}
@@ -109,7 +109,7 @@
         <div class="row">
             <div class="column">
                 <p>Email: <a class="link"
-                        href="mailto:rinconcitoanimalsecreto@gmail.com">rinconcitoanimalsecreto@gmail.com</a></p>
+                        href="mailto:rinconcitoanimalsecreto@gmail.com">pokedealers@gmail.com</a></p>
                 <p>Teléfono: <a class="link" href="tel:+56967961436">+56967961436</a></p>
                 <div class="help-container">
                     <p style="padding-top: 2%;">Ayuda:</p>
@@ -124,7 +124,7 @@
                     <img class="ig" src="{% static 'inicio/img-carro/logo-yt.png'%}" alt="YouTube"></a>
                 <a href="https://twitter.com/shitpost_2077/status/1776074782292808132" target="_blank">
                     <img class="ig" src="{% static 'inicio/img-carro/logo-x.png'%}" alt="Twitter"></a>
-                <p>© 2021 Rinconcito Animal</p>
+                <p>©2025 PokeDealers</p>
             </div>
             <div class="column">
                 <h3>Sobre nosotros:</h3>

@@ -20,7 +20,8 @@
 }
 
 .btn.btn-primary {
-    align-self: baseline;
+    align-self: center;
+    font-weight: bolder;
 }
 
 /* BOTON SUBIR */
