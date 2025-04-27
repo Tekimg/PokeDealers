@@ -1,0 +1,21 @@
+{% extends "app/index.html" %}
+{%load static%}
+
+{% block title %} Formulario de Producto {% endblock %}
+{% block css %}
+<link type='text/css' rel='stylesheet' href='{% static 'inicio/css/editForm.css' %}'>
+{% endblock %}
+{% block content %}
+<div class='row' style='justify-content: center; margin:2%;'>
+    <div class='titulo'>
+        <h1>Formulario de Producto</h1>
+    </div>
+</div>
+<div class='editar'>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "app/index.html" %}
+{% load static %}
+{% block title %} Modificación de Productos {% endblock %}
+{% block css %}
+<link type='text/css' rel='stylesheet' href='{% static 'inicio/css/edit.css' %}'>
+{% endblock %}
+
+{% block content %}
+<section>
+<div class="centered-container">
+    <div class="container">
+        <br>
+    <h1>Modificación de Productos</h1>
+    <br>
+
+    <div class="center-buttons">
+        <a class="button-link" href="{% url 'producto_list' %}">Lista de Productos</a>
+        <a class="button-link" href="{% url 'producto_create' %}">Crear Producto</a>
+    </div>
+    <br>
+
+    </div>
+
+</div>
+</section>
+
+{% endblock %}

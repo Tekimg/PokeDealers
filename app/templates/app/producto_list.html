@@ -1,0 +1,48 @@
+{% extends "app/index.html" %}
+{%load static%}
+{% block title %} Lista de Productos {% endblock %}
+
+{% block css %}
+<link type='text/css' rel='stylesheet' href='{% static 'inicio/css/editList.css' %}'>
+
+{% endblock %}
+
+{%block carrusel%}
+{%endblock%}
+
+
+{% block content %} 
+<div class='row' style='justify-content: center; margin:2%;'>
+    <div class='titulo'>
+        <h1>Lista de Productos</h1>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.nom_producto }}</td>
+            <td>{{ producto.id_categoria.nom_categoria }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>
+                <a href="{% url 'producto_update' producto.pk %}">Editar</a>
+                <a href="{% url 'producto_delete' producto.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class='container'>
+    <a class="button-link" href="{% url 'producto_create' %}">Crear nuevo producto</a>
+</div>
+{% endblock %}

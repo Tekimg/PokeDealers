@@ -1,0 +1,52 @@
+
+.titulo {
+    background-color: darkorange; 
+    padding: 20px;
+    text-align: center;
+    display:flex ;
+    justify-content: center;
+    width: 30%;
+    border-radius: 5px;
+  }
+  
+  .titulo h1 {
+    margin: 0;
+    color: black;
+    text-align: center;
+    margin: 3%;
+    font-size: x-large;
+  }
+  
+form {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: darkorange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button[type="submit"]:hover {
+    background-color: rgb(252, 88, 48);
+}
+.editar{
+    display: flex;
+    justify-content: center;
+
+}
