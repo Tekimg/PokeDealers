@@ -5,6 +5,23 @@
 .logo {
     height: 100px;
 }
+.carousel-slide {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel-slide .carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
 .btn {
     height: 50px;
