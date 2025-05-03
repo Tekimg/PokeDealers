@@ -1,3 +1,25 @@
-<h2>Error en el pago</h2>
-<p>{{ response }}</p>
-<a href="{% url 'cart_detail' %}">Volver al carrito</a>
+{% extends "app/index.html" %}
+{% block title %}Error en el pago{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg rounded-lg">
+        <div class="card-header bg-danger text-white text-center py-3">
+          <h2 class="mb-0">Error en el pago</h2>
+        </div>
+        <div class="card-body text-center">
+          <p class="lead text-danger">{{ message|default:"Ha ocurrido un error en la transacción." }}</p>
+          {% if response %}
+          <pre class="text-left small text-muted">{{ response }}</pre>
+          {% endif %}
+          <div class="mt-4">
+            <a href="{% url 'cart_detail' %}" class="btn btn-primary">Volver al carrito</a>
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary">Seguir comprando</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

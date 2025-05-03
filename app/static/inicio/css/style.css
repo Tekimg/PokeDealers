@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgb(15, 79, 199)!important;
+    background-color:rgb(31, 85, 184)!important;
 }
 
 .logo {
@@ -22,7 +22,7 @@
 }
 
 footer {
-    background-color: rgb(0, 40, 114)!important;
+    background-color: rgb(31, 85, 184)!important;
     color: aliceblue;
     padding: 20px;
     position: static;

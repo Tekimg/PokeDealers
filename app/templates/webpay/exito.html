@@ -1,5 +1,36 @@
-<h2>¡Pago exitoso!</h2>
-<p>Orden: {{ response.buy_order }}</p>
-<p>Monto: {{ response.amount }}</p>
-<p>Estado: {{ response.status }}</p>
-<a href="{% url 'cart_detail' %}">Volver al carrito</a>
+{% extends "app/index.html" %}
+{% block title %}Pago Exitoso{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg rounded-lg">
+        <div class="card-header bg-success text-white text-center py-3">
+          <h2 class="mb-0">¡Pago Exitoso!</h2>
+        </div>
+        <div class="card-body">
+          <p class="lead">Tu transacción ha sido procesada con éxito.</p>
+          <ul class="list-group list-group-flush my-4">
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Orden:</span>
+              <strong>{{ response.buy_order }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Monto:</span>
+              <strong>{{ response.amount|floatformat:2 }} {{ response.currency|default:"CLP" }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Estado:</span>
+              <strong class="text-success">{{ response.status }}</strong>
+            </li>
+          </ul>
+          <div class="text-center">
+            <a href="{% url 'cart_detail' %}" class="btn btn-primary">Volver al carrito</a>
+            <a href="{% url 'home' %}" class="btn btn-primary">Seguir comprando</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
