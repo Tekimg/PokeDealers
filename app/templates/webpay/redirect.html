@@ -1,0 +1,29 @@
+<!-- templates/webpay/redirect.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo a Webpay...</title>
+</head>
+<body>
+    <p>Redirigiendo al sistema de pago...</p>
+    <form id="webpay-form" action="{{ url }}" method="POST">
+        <input type="hidden" name="token_ws" value="{{ token }}">
+        <noscript>
+            <button type="submit">Si no eres redirigido automáticamente, haz clic aquí para continuar al pago</button>
+        </noscript>
+    </form>
+    <script>
+        // Espera a que el DOM esté cargado antes de enviar
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('webpay-form');
+            if (form) {
+                form.submit();
+            } else {
+                console.error('Formulario de Webpay no encontrado');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<h2>¡Pago exitoso!</h2>
+<p>Orden: {{ response.buy_order }}</p>
+<p>Monto: {{ response.amount }}</p>
+<p>Estado: {{ response.status }}</p>
+<a href="{% url 'cart_detail' %}">Volver al carrito</a>

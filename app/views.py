@@ -1,5 +1,8 @@
+import logging
+import re
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import User
+import uuid
 from .forms import   RegistroUserForm
 from .forms import ProductoForm
 from django.contrib.auth import logout, authenticate, login
@@ -7,6 +10,12 @@ from django.contrib.auth.decorators import login_required
 from .models import Producto, Categoria, Cart, CartItem
 import os
 from django.conf import settings  # Añadir esta línea
+
+from transbank.webpay.webpay_plus.transaction import Transaction
+from transbank.common.integration_type import IntegrationType
+from decimal import Decimal
+from transbank.error.transaction_create_error import TransactionCreateError
+from transbank.error.transaction_commit_error import TransactionCommitError
 
 
 
@@ -122,14 +131,17 @@ def cart_detail(request):
 
 @login_required
 def add_to_cart(request, product_id):
-    # Usa 'id_producto' en lugar de 'id'
+    # Busca el producto
     product = get_object_or_404(Producto, id_producto=product_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
+    
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
-    cart_item.quantity += 1
-    cart_item.save()
+    
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    
     return redirect('cart_detail')
-
 
 @login_required
 def remove_from_cart(request, product_id):
@@ -139,15 +151,129 @@ def remove_from_cart(request, product_id):
     cart_item.delete()
     return redirect('cart_detail')
 
-
 @login_required
-def update_cart_item(request, product_id, quantity):
+def update_cart_item(request, product_id):
     product = get_object_or_404(Producto, id_producto=product_id)
     cart = get_object_or_404(Cart, user=request.user)
     cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    
+    # Obtener la cantidad desde el POST
+    quantity = int(request.POST.get('quantity', 0))
+    
     if quantity > 0:
         cart_item.quantity = quantity
         cart_item.save()
     else:
         cart_item.delete()
+    
     return redirect('cart_detail')
+
+# Configurar el logger
+logger = logging.getLogger(__name__)
+
+
+@login_required
+def iniciar_pago(request):
+    total = get_cart_total_from_db(request)
+    
+    if total <= 0:
+        return redirect('cart_detail')  # Puedes mostrar error si prefieres
+
+    # Crear parámetros de transacción
+    buy_order = uuid.uuid4().hex[:20]
+    session_id = str(uuid.uuid4())
+    return_url = request.build_absolute_uri('/webpay/respuesta/')
+
+    print("buy_order:", buy_order, flush=True)
+    print("session_id:", session_id, flush=True)
+    print("return_url:", return_url, flush=True)
+
+    try:
+        # Crear transacción con Transbank
+        response = Transaction.create(
+            buy_order, session_id, int(total), return_url
+        )
+
+        # Redirigir a Webpay usando plantilla redirect.html
+        return render(request, 'webpay/redirect.html', {
+            'url': response.url,
+            'token': response.token
+        })
+
+    except TransactionCreateError as e:
+        # Mostrar página de error con mensaje
+        return render(request, 'webpay/error.html', {
+            'message': f"Error al crear la transacción: {e.message}"
+        })
+
+
+
+def parse_price(raw_price: str) -> Decimal:
+
+    # Quita todo excepto dígitos, puntos y comas
+    cleaned = re.sub(r"[^\d\.,]", "", raw_price)
+    # Si tiene un solo separador coma y varios puntos: asume formato XX.XXX,YY
+    if cleaned.count(',') == 1 and cleaned.count('.') > 1:
+        cleaned = cleaned.replace('.', '').replace(',', '.')
+    # Si tiene varios separadores de coma: asume miles con coma
+    elif cleaned.count(',') > 1:
+        cleaned = cleaned.replace(',', '')
+    # Si tiene una sola coma sin puntos: coma decimal
+    elif cleaned.count(',') == 1 and cleaned.count('.') == 0:
+        cleaned = cleaned.replace(',', '.')
+    try:
+        return Decimal(cleaned)
+    except Exception:
+        return Decimal('0.0')
+
+
+def get_cart_total_from_db(request):
+    """Recorre el Cart y suma precio * cantidad de cada CartItem."""
+    cart, _ = Cart.objects.get_or_create(user=request.user)
+    total = Decimal('0.0')
+    items = CartItem.objects.filter(cart=cart).select_related('product')
+    for item in items:
+        price = parse_price(str(item.product.precio))
+        total += price * item.quantity
+    return total
+
+@login_required
+def respuesta_pago(request):
+    # Ya no bloqueamos GET
+    token = request.POST.get('token_ws') or request.GET.get('token_ws')
+    print("🔔 Token recibido:", token, flush=True)
+
+    if not token:
+        print("⚠️ No se recibió token", flush=True)
+        return render(request, 'webpay/error.html', {
+            'message': 'No se recibió un token válido.',
+        })
+
+    try:
+        print("🔄 Confirmando transacción con token:", token, flush=True)
+        response = Transaction.commit(token)
+        print("📤 Respuesta completa:", response.__dict__, flush=True)
+
+        if response.status == 'AUTHORIZED':
+            print("✅ Pago AUTORIZADO", flush=True)
+            cart = Cart.objects.get(user=request.user)
+            CartItem.objects.filter(cart=cart).delete()
+            return render(request, 'webpay/exito.html', {'response': response})
+        else:
+            print(f"❌ Pago rechazado. Estado: {response.status}", flush=True)
+            return render(request, 'webpay/error.html', {
+                'message': f"Pago rechazado. Estado: {response.status}",
+                'response': response
+            })
+
+    except TransactionCommitError as e:
+        print("🚨 TransactionCommitError:", str(e), flush=True)
+        return render(request, 'webpay/error.html', {
+            'message': f"Error al confirmar la transacción: {str(e)}"
+        })
+
+    except Exception as e:
+        print("🔥 Error inesperado:", str(e), flush=True)
+        return render(request, 'webpay/error.html', {
+            'message': f"Error inesperado: {str(e)}"
+        })

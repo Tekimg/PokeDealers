@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from .views import producto_list, producto_create, producto_update, producto_delete
-
+from . import views as webpay_views
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
@@ -27,9 +27,10 @@ urlpatterns = [
     path('cart/', views.cart_detail, name='cart_detail'),
     path('cart/add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('cart/remove/<int:product_id>/', views.remove_from_cart, name='remove_from_cart'),
-    path('cart/update/<int:product_id>/<int:quantity>/', views.update_cart_item, name='update_cart_item'),
-
-
+    path('cart/update/<int:product_id>/', views.update_cart_item, name='update_cart_item'),
+    path('webpay/iniciar/', views.iniciar_pago, name='iniciar_pago'),
+    path('webpay/respuesta/', views.respuesta_pago, name='respuesta_pago'),
+    
 
 
 ]
