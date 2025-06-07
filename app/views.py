@@ -26,10 +26,10 @@ def inicio(request):
 def home(request):
     return render(request, 'app/home.html')
 
-def alimentos(request):
+def singles(request):
     categoria = Categoria.objects.get(nom_categoria='Singles')
     products = Producto.objects.filter(id_categoria=categoria)[:8]
-    return render(request, 'app/alimentos.html', {'products':products})
+    return render(request, 'app/singles.html', {'products':products})
 
 
 def accesorios(request):
@@ -37,10 +37,10 @@ def accesorios(request):
     products = Producto.objects.filter(id_categoria=categoria)[:8]
     return render(request, 'app/accesorios.html', {'products':products})
 
-def farmacia(request):
+def productos_sellados(request):
     categoria = Categoria.objects.get(nom_categoria='Productos Sellados')
     products = Producto.objects.filter(id_categoria=categoria)[:8]
-    return render(request, 'app/farmacia.html', {'products':products})
+    return render(request, 'app/productos_sellados.html', {'products':products})
 
 def user_login(request):
     return render(request, 'registration/login.html')
